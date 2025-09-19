@@ -6,6 +6,7 @@ import  { useState, useEffect }  from "react";
 export default function Home() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [iframeUrl, setIframeUrl] = useState("");
 
    
 
@@ -49,6 +50,8 @@ const handleSubmit = (e) => {
   
   return (
      <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: 9999 }}>
+    
+    {iframeUrl != ''?
       <iframe
         // src="https://tours.savitarrealty.in/virtualtour/e6b7ba87"
         src={iframeUrl}
@@ -59,7 +62,7 @@ const handleSubmit = (e) => {
         allow="vr;xr-spatial-tracking;gyroscope;accelerometer;magnetometer;"
         title="Kalyan Heritage"
         style={{ display: "block", border: "none" }}
-      ></iframe>
+      ></iframe>:null}
  
          
     </div>
