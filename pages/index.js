@@ -21,8 +21,8 @@ export default function Home() {
 
     // Map query param to iframe links
     let url = "https://tours.savitarrealty.in/virtualtour/e6b7ba87"; // default
-    if (tour === "aerial") {
-      url = "https://tours.savitarrealty.in/virtualtour/e6b7ba87";
+    if (tour === "virtual-tour") {
+      url = "https://biganto.com/tour/46576";
     } else if (tour === "virtual-tour") {
       url = "https://biganto.com/tour/46576";
     }
