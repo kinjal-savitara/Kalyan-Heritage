@@ -9,12 +9,28 @@ export default function Home() {
 
    
 
-   useEffect(() => {
+
+  useEffect(() => {
     document.documentElement.style.height = "100%";
     document.body.style.height = "100%";
     document.body.style.margin = "0";
+
+    // Get query param "tour"
+    const params = new URLSearchParams(window.location.search);
+    const tour = params.get("tour");
+
+    // Map query param to iframe links
+    let url = "https://tours.savitarrealty.in/virtualtour/e6b7ba87"; // default
+    if (tour === "aerial") {
+      url = "https://tours.savitarrealty.in/virtualtour/e6b7ba87";
+    } else if (tour === "virtual-tour") {
+      url = "https://biganto.com/tour/46576";
+    }
+
+    setIframeUrl(url);
   }, []);
 
+  
   
     const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -34,7 +50,8 @@ const handleSubmit = (e) => {
   return (
      <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: 9999 }}>
       <iframe
-        src="https://tours.savitarrealty.in/virtualtour/e6b7ba87"
+        // src="https://tours.savitarrealty.in/virtualtour/e6b7ba87"
+        src={iframeUrl}
         frameBorder="0"
         scrolling="no"
         width="100%"
